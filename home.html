@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title class="Titulo">      
+          Entrada al post         
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="Fondo" padding>
+  <img class="Icon" src="assets/icon/userfoto.png"  alt="">
+     
+  <br>
+
+  <div class="ion-padding">
+    <ion-list class="Lista">
+       
+      <ion-item class="item1" > 
+         <ion-label  floating>Username</ion-label>
+         <ion-input class="Entrada1" type="text" #Username></ion-input>
+     </ion-item>
+   
+     <ion-item class="item2">
+       <ion-label floating>Password</ion-label>
+       <ion-input class="Entrada2" type="Password" #Password></ion-input>
+     </ion-item>
+                
+
+    </ion-list> 
+  
+    <div padding>
+      <button ion-button (click)='Entrar()' color='secondary' block type="submit">Login</button>
+    </div>
+    
+  </div>
+</ion-content>

@@ -1,0 +1,65 @@
+<!--
+  Generated template for the FeedPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+     
+    <ion-title>Noticias</ion-title>
+     <button ion-button menuToggle></button>
+     <ion-icon name="menu"></ion-icon>   
+    
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>  
+  <button   ion-button  (click)='Crear()' color='secondary'>ADD POST</button>
+  <button   ion-button  (click)='CrearUsuario()' color='danger'>ADD USER</button>
+  <button ion-button (click)='Salir()' color='light'>LOGOUT</button>
+<ion-list>
+  <ion-item-sliding *ngFor="let Datos of DatosNoticias">
+    <ion-item>
+      <img src="{{Datos.url}}">
+      
+      <div>
+        <p>
+          <label text-wrap>
+              {{Datos.comentario}}  
+          </label>
+                 
+       </p>
+
+       <label ion-label>
+        <ion-icon name="thumbs-up"></ion-icon>
+          : {{Datos.like}}
+      </label>
+
+      <label ion-label>
+        <ion-icon name="thumbs-down"></ion-icon>
+          : {{Datos.nolike}}
+      </label> 
+      </div>
+      
+    </ion-item>
+
+
+
+    <ion-item-options side="right">
+        
+      <button ion-button (click)="Eliminar(Datos)"  color="danger">
+        <ion-icon name="trash"></ion-icon>        
+        Borrar
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
+
+  
+  
+  
+</ion-content>

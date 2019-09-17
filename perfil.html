@@ -1,0 +1,115 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pantalla Crear Perfil</ion-title>
+
+    
+      
+
+  </ion-navbar>
+</ion-header>
+
+
+
+
+
+<ion-content padding>
+  <div class= "Titulo">
+    <h3>
+        Perfil Usuario
+    </h3>
+  </div>
+
+  
+  <br>
+
+    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+        <ion-list> 
+          <ion-item>
+            <ion-label stacked>Nombre:</ion-label>
+            <ion-input formControlName="Nombre" type="text" placeholder="Nombre"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="myForm.get('Nombre').errors && myForm.get('Nombre').dirty">
+            <p color="danger" ion-text *ngIf="myForm.get('Nombre').hasError('required')">Field is required</p>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Apellidos:</ion-label>
+            <ion-input formControlName="Apellidos" type="text" placeholder="Apellidos"></ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="myForm.get('Apellidos').errors && myForm.get('Apellidos').dirty">
+            <p color="danger" ion-text *ngIf="myForm.get('Apellidos').hasError('required')">Field is required</p>
+            <p color="danger" ion-text *ngIf="myForm.get('Apellidos').hasError('minlength')">Min of 5 characters</p>
+            <p color="danger" ion-text *ngIf="myForm.get('Apellidos').hasError('maxlength')">Max of 10 characters</p>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label stacked>E-mail:</ion-label>
+            <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+            <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Field is required</p>
+            <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">It is not an email</p>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Edad:</ion-label>
+            <ion-input formControlName="Edad" type="number" placeholder="Edad"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="myForm.get('Edad').errors && myForm.get('Edad').dirty">
+            <p color="danger" ion-text *ngIf="myForm.get('Edad').hasError('required')">Field is required</p>
+            <p color="danger" ion-text *ngIf="myForm.get('Edad').hasError('invalid')">You are not adult</p>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Nombre Usuario:</ion-label>
+            <ion-input formControlName="NombreUsuario" type="text" placeholder="NombreUsuario"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="myForm.get('NombreUsuario').errors && myForm.get('NombreUsuario').dirty">
+            <p color="danger" ion-text *ngIf="myForm.get('NombreUsuario').hasError('required')">Field is required</p>
+            <p color="danger" ion-text *ngIf="myForm.get('NombreUsuario').hasError('pattern')">It is not an url</p>
+          </ion-item>
+          <ion-item>
+
+            <ion-label stacked>Password:</ion-label>
+            <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
+            <p color="danger" ion-text *ngIf="myForm.get('password').hasError('required')">Field is required</p>
+            <p color="danger" ion-text *ngIf="myForm.get('password').hasError('pattern')">It is not a strong password</p>
+          </ion-item>
+           
+         
+          <ion-list radio-group formControlName="TipoUsuario">
+
+              <ion-item>
+                  <ion-label>Administrador</ion-label>
+                  <ion-radio checked="true"  value="Administrador" ></ion-radio>
+                                  
+                 
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Usuario Final</ion-label>
+                    <ion-radio  value="Usuario Final"></ion-radio>
+                  </ion-item>
+
+
+          </ion-list>
+
+              
+  
+
+        </ion-list>
+
+        <div padding>
+          <button ion-button block type="submit" [disabled]="myForm.invalid">Guardar</button>
+        </div>
+      </form>
+    
+
+</ion-content>
